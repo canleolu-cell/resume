@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leo Lu - 销售与市场领导者</title>
+    <title>Leo Lu - 销售与市场领导者 | 个人简历</title>
+    <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入优雅的 Inter 字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -19,163 +21,181 @@
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
         }
+        /* 苹果风格文字渐变 */
         .text-gradient {
             background: linear-gradient(135deg, #0071e3 0%, #00d4ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .text-gradient-purple {
+            background: linear-gradient(135deg, #8a2387 0%, #e94057 50%, #f27121 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* 彩虹色边框渐变 - 苹果标志性效果 */
+        .rainbow-ring {
+            background: conic-gradient(from 180deg at 50% 50%, #ff3b30, #ff9500, #ffcc00, #4cd964, #5ac8fa, #007aff, #5856d6, #ff3b30);
+            animation: rotate-ring 4s linear infinite;
+        }
+        @keyframes rotate-ring {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        /* 毛玻璃导航栏 */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.72);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
         }
+        /* 苹果标志性的超圆角卡片 */
         .apple-card {
-            border-radius: 28px;
+            border-radius: 32px;
             transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             overflow: hidden;
             background-color: var(--apple-bg);
+            border: 1px solid rgba(0,0,0,0.03);
         }
         .apple-card:hover {
             transform: scale(1.01);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
-            background-color: #ffffff;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
         }
-        .bg-dark-card { background-color: #1d1d1f; color: white; }
         
-        /* 标志容器 */
-        .company-logo {
-            height: 54px;
-            margin-top: 12px;
-            display: flex;
-            align-items: center;
-        }
-
         @media print {
             .no-print { display: none; }
             .apple-card { transform: none !important; box-shadow: none !important; background: white !important; border: 1px solid #eee; opacity: 1 !important; }
         }
     </style>
 </head>
-<body class="bg-white">
+<body class="bg-white selection:bg-blue-100">
 
-    <!-- 顶部导航 -->
+    <!-- 导航栏 -->
     <nav class="no-print fixed top-0 w-full z-50 glass-nav border-b border-black/5">
         <div class="max-w-[1100px] mx-auto px-6 h-12 flex items-center justify-between">
             <div class="flex items-center gap-8">
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.96.95-2.04 1.72-3.12 1.72-1.09 0-1.57-.68-2.83-.68-1.27 0-1.84.66-2.83.66-1.05 0-2.03-.68-3.15-1.78-2.26-2.22-3.95-6.28-3.95-9.15 0-4.57 2.85-6.98 5.56-6.98 1.44 0 2.54.89 3.42.89.86 0 2.21-1.07 3.86-1.07 1.39 0 3.2.53 4.41 2.22-3.14 1.84-2.63 6.06.52 7.37-1.11 2.58-2.83 5.05-4.93 7.73zM12.03 5.07c-.11-2.42 1.87-4.63 4.14-5.07.25 2.54-2.01 4.78-4.14 5.07z"/></svg>
-                <div class="hidden md:flex space-x-6 text-[12px] font-medium text-zinc-500 uppercase tracking-tighter">
+                <svg class="w-5 h-5 text-zinc-800" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.96.95-2.04 1.72-3.12 1.72-1.09 0-1.57-.68-2.83-.68-1.27 0-1.84.66-2.83.66-1.05 0-2.03-.68-3.15-1.78-2.26-2.22-3.95-6.28-3.95-9.15 0-4.57 2.85-6.98 5.56-6.98 1.44 0 2.54.89 3.42.89.86 0 2.21-1.07 3.86-1.07 1.39 0 3.2.53 4.41 2.22-3.14 1.84-2.63 6.06.52 7.37-1.11 2.58-2.83 5.05-4.93 7.73zM12.03 5.07c-.11-2.42 1.87-4.63 4.14-5.07.25 2.54-2.01 4.78-4.14 5.07z"/></svg>
+                <div class="hidden md:flex space-x-8 text-[12px] font-medium text-zinc-500 uppercase tracking-tighter">
                     <a href="#about" class="hover:text-black transition">个人简介</a>
-                    <a href="#experience" class="hover:text-black transition">工作经历</a>
-                    <a href="#competencies" class="hover:text-black transition">核心能力</a>
-                    <a href="#contact" class="hover:text-black transition">联系方式</a>
+                    <a href="#competencies" class="hover:text-black transition">能力</a>
+                    <a href="#experience" class="hover:text-black transition">经历</a>
+                    <a href="#contact" class="hover:text-black transition">联系</a>
                 </div>
             </div>
             <button onclick="window.print()" class="bg-black text-white px-4 py-1.5 rounded-full text-[12px] font-medium hover:bg-zinc-800 transition">
-                导出 PDF
+                保存简历
             </button>
         </div>
     </nav>
 
     <main class="max-w-[1100px] mx-auto px-6 pt-32 pb-24">
         
-        <!-- 个人头部 -->
-        <header id="about" class="mb-24 text-center animate-item">
-            <div class="inline-block mb-8 group">
-                <div class="w-32 h-32 md:w-44 md:h-44 rounded-full bg-zinc-100 p-1 shadow-2xl relative">
-                    <div class="w-full h-full rounded-full overflow-hidden bg-zinc-200 ring-4 ring-white">
-                        <!-- 个人照片地址 -->
-                        <img src="leo-photo.jpg" alt="Leo Lu" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400?text=Leo+Lu'">
+        <!-- 头部/彩虹头像 -->
+        <header id="about" class="mb-28 text-center animate-item">
+            <div class="relative inline-block mb-10">
+                <!-- 彩虹外圈 -->
+                <div class="w-36 h-36 md:w-48 md:h-48 rounded-full p-[4px] shadow-2xl relative rainbow-ring flex items-center justify-center">
+                    <div class="w-full h-full rounded-full overflow-hidden bg-white border-[3px] border-white relative z-10">
+                        <!-- 请确保上传名为 leo-photo.jpg 的照片 -->
+                        <img src="leo-photo.jpg" alt="Leo Lu" class="w-full h-full object-cover scale-105" onerror="this.src='https://via.placeholder.com/400?text=Leo+Lu'">
                     </div>
                 </div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-4">Leo Lu</h1>
-            <p class="text-xl md:text-2xl font-semibold text-blue-600 mb-8 uppercase tracking-widest">Sales & Marketing Leader</p>
-            <p class="text-xl md:text-3xl font-medium text-zinc-400 max-w-3xl mx-auto leading-tight">
-                25年以上顶尖全球航运集团经验。擅长驱动营收增长、利润优化，以及 <span class="text-black">多贸易航线的市场份额扩张</span>。
+            
+            <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-6">Leo Lu</h1>
+            <p class="text-2xl md:text-3xl font-bold text-gradient-purple mb-8 uppercase tracking-widest italic">Sales & Marketing Leader</p>
+            <p class="text-xl md:text-3xl font-medium text-zinc-400 max-w-3xl mx-auto leading-[1.15]">
+                25年以上顶尖航运集团实战经验。擅长驱动 <span class="text-black">营收增长与利润优化</span>，连接全球每一处港口。
             </p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <!-- Bento 布局 -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24">
             
-            <!-- 核心能力 -->
-            <section id="competencies" class="md:col-span-8 apple-card p-10 md:p-14 flex flex-col justify-between animate-item">
-                <h2 class="text-[11px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-12">核心能力</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-sm md:text-base">
+            <!-- 核心能力 - 渐变淡蓝卡片 -->
+            <section id="competencies" class="md:col-span-8 apple-card p-12 md:p-16 flex flex-col justify-between animate-item !bg-gradient-to-br from-[#f2f7ff] to-[#e8f0fe]">
+                <h2 class="text-[11px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-12">Core Competencies</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                     <div>
-                        <h3 class="text-lg font-bold mb-4">商业战略</h3>
-                        <p class="text-zinc-500 leading-relaxed">损益管理 (P&L) | 销售预测与规划 | 市场渗透 | 大客户管理 | 定价与收益管理</p>
+                        <h3 class="text-xl font-bold mb-3 text-blue-900">商业战略</h3>
+                        <p class="text-blue-900/60 text-sm leading-relaxed">损益管理 (P&L) | 销售预测与规划 | 市场渗透 | 大客户管理 | 定价优化</p>
                     </div>
                     <div>
-                        <h3 class="text-lg font-bold mb-4">数据分析与技术</h3>
-                        <p class="text-zinc-500 leading-relaxed">Tableau | Power BI | 市场运力分析 | 竞争情报 | 绩效仪表板 | 数据驱动决策</p>
+                        <h3 class="text-xl font-bold mb-3 text-blue-900">数据分析</h3>
+                        <p class="text-blue-900/60 text-sm leading-relaxed">Tableau | Power BI | 运力分析 | 绩效仪表板 | 数据驱动决策</p>
                     </div>
                     <div>
-                        <h3 class="text-lg font-bold mb-4">销售领导力</h3>
-                        <p class="text-zinc-500 leading-relaxed">团队建设与辅导 | 战略谈判 | 垂直市场战略 (FMCG & 冷链) | 数字化转型 | CRM 系统</p>
+                        <h3 class="text-xl font-bold mb-3 text-blue-900">销售领导力</h3>
+                        <p class="text-blue-900/60 text-sm leading-relaxed">团队辅导 | 战略谈判 | 冷链及 FMCG 市场战略 | 数字化 CRM</p>
                     </div>
                     <div>
-                        <h3 class="text-lg font-bold mb-4">行业专长</h3>
-                        <p class="text-zinc-500 leading-relaxed">端到端供应链管理 | 港口与码头运营 | 多贸易航线管理 | 综合物流解决方案</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 联系信息 -->
-            <section class="md:col-span-4 apple-card bg-zinc-100 p-10 animate-item flex flex-col justify-between">
-                <h2 class="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-12">联系方式</h2>
-                <div class="space-y-6">
-                    <div>
-                        <p class="text-xs font-bold text-zinc-400 mb-1 uppercase">电话</p>
-                        <p class="text-lg font-semibold tracking-tight">188 2504 4791</p>
-                    </div>
-                    <div>
-                        <p class="text-xs font-bold text-zinc-400 mb-1 uppercase">所在地</p>
-                        <p class="text-lg font-semibold">广州, 中国</p>
-                    </div>
-                    <div>
-                        <p class="text-xs font-bold text-zinc-400 mb-1 uppercase">教育背景</p>
-                        <p class="text-sm font-semibold italic text-zinc-600">广东工业大学<br>技术对外贸易 (1992-1996)</p>
+                        <h3 class="text-lg font-bold mb-3 text-blue-900">行业深度</h3>
+                        <p class="text-blue-900/60 text-sm leading-relaxed">端到端供应链 | 港口运营 | 多贸易航线 | 综合物流方案</p>
                     </div>
                 </div>
             </section>
 
-            <!-- 工作经历详情 -->
-            <section id="experience" class="md:col-span-12 apple-card p-10 md:p-14 animate-item">
-                <h2 class="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-14">工作经历</h2>
+            <!-- 联系方式 - 渐变淡粉紫 -->
+            <section class="md:col-span-4 apple-card p-10 animate-item flex flex-col justify-between !bg-gradient-to-br from-[#fbf2ff] to-[#f4e8fd]">
+                <h2 class="text-[11px] font-bold text-purple-600 uppercase tracking-[0.2em] mb-12">Contact Info</h2>
+                <div class="space-y-8">
+                    <div>
+                        <p class="text-[10px] font-bold text-purple-900/40 mb-1 uppercase tracking-widest">Phone</p>
+                        <p class="text-xl font-bold text-purple-900">188 2504 4791</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-purple-900/40 mb-1 uppercase tracking-widest">Email</p>
+                        <p class="text-lg font-bold text-purple-900">can.leolu@gmail.com</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-purple-900/40 mb-1 uppercase tracking-widest">Education</p>
+                        <p class="text-sm font-bold text-purple-900/80 italic leading-relaxed">广东工业大学<br>技术对外贸易 (1992-1996)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 视觉巨幕：全宽货轮图 -->
+            <section class="md:col-span-12 apple-card h-80 md:h-[500px] relative animate-item group overflow-hidden">
+                <img src="Mumbai Mærsk at Rotterdam_DJI_20251104171029_0044_D_graded.jpg" class="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" alt="Maersk Vessel">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-10 left-10 md:bottom-16 md:left-16 text-white">
+                    <h3 class="text-4xl md:text-6xl font-bold mb-4 tracking-tighter">Global Connectivity.</h3>
+                    <p class="text-white/80 text-lg md:text-xl max-w-2xl font-medium leading-relaxed">25 years of steering integrated logistics across oceans and connecting global markets.</p>
+                </div>
+            </section>
+
+            <!-- 工作经历 (8列) -->
+            <section id="experience" class="md:col-span-8 apple-card p-12 md:p-16 animate-item !bg-white border-zinc-100 shadow-sm">
+                <h2 class="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-14">Experience</h2>
                 <div class="space-y-16">
-                    
-                    <!-- 马士基 Maersk -->
+                    <!-- Maersk -->
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                         <div class="md:col-span-1">
-                            <div class="company-logo">
+                            <div class="company-logo mb-2">
                                 <svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="32" height="32" rx="4" fill="#9ADBE8"/>
                                     <path d="M16 8L17.5 13.5H23L18.5 16.5L20 22L16 19L12 22L13.5 16.5L9 13.5H14.5L16 8Z" fill="white"/>
                                     <text x="40" y="22" fill="#1d1d1f" font-family="Arial" font-weight="900" font-size="14">MAERSK</text>
                                 </svg>
                             </div>
-                            <p class="text-sm text-blue-600 font-bold mt-4">2022 - 2024</p>
+                            <p class="text-[11px] text-blue-600 font-bold mt-4 uppercase bg-blue-50 px-2 py-1 rounded inline-block">2022 - 2024</p>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="text-xl font-bold mb-3">FMCG Account Manager</h3>
-                            <ul class="text-zinc-600 text-sm space-y-3 leading-relaxed list-disc list-outside ml-4">
-                                <li>荣获 <span class="text-black font-semibold italic">2022 Maersk Group Sales Master (全球级)</span>，年均产生超过 $500,000 的综合物流收入。</li>
-                                <li>推动 FMCG 客户采用空运、LCL 及供应链管理等综合方案，成功将纯海运合同转型为多式联运合同。</li>
+                            <h3 class="text-2xl font-bold mb-3 tracking-tight">FMCG Account Manager</h3>
+                            <ul class="text-zinc-500 text-[15px] space-y-4 leading-relaxed list-disc list-outside ml-4">
+                                <li>获评 <span class="text-black font-semibold text-blue-600">2022 Maersk Group Sales Master</span> (全球级销售冠军)。</li>
+                                <li>通过多式联运方案转型，年均贡献超 $500,000 的综合物流营收增长。</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="h-px bg-zinc-200"></div>
+                    <div class="h-px bg-zinc-100"></div>
 
-                    <!-- 汉堡南美 Hamburg Süd -->
+                    <!-- Hamburg Süd -->
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                         <div class="md:col-span-1">
-                            <!-- 精准还原 Hamburg Süd Logo -->
-                            <div class="company-logo">
+                            <div class="company-logo mb-2">
                                 <svg width="180" height="50" viewBox="0 0 180 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <text x="0" y="24" fill="#919194" font-family="Arial" font-weight="400" font-size="20">HAMBURG</text>
                                     <g transform="translate(102, 6)">
-                                        <!-- 红底白十字旗 -->
                                         <path d="M0 0C0 0 10 -4 20 0C30 4 40 0 40 0V22C40 22 30 26 20 22C10 18 0 22 0 22V0Z" fill="#E2001A"/>
                                         <path d="M20 0V22M0 11H40" stroke="white" stroke-width="3"/>
                                     </g>
@@ -183,113 +203,96 @@
                                     <text x="0" y="44" fill="#b1b1b4" font-family="Arial" font-size="10">A Maersk Company</text>
                                 </svg>
                             </div>
-                            <p class="text-sm text-zinc-400 font-bold mt-4">2015 - 2022</p>
+                            <p class="text-[11px] text-red-600 font-bold mt-4 uppercase bg-red-50 px-2 py-1 rounded inline-block">2015 - 2022</p>
                         </div>
                         <div class="md:col-span-3">
-                            <h3 class="text-xl font-bold mb-3">Sales & Marketing Manager</h3>
-                            <ul class="text-zinc-600 text-sm space-y-3 leading-relaxed list-disc list-outside ml-4">
-                                <li>领导 5 人销售团队，将周货量从 800 TEU 提升至 1,400 TEU，并开辟了跨太平洋及欧洲新航线。</li>
-                                <li>策划大洋洲贸易市场战略，将市场份额提升至 15%，周货量从 20 TEU 增长至 150-200 TEU。</li>
-                                <li>推广 'INSTANT' 线上采购平台，实现 30% 的线上定价渗透率。</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="h-px bg-zinc-200"></div>
-
-                    <!-- 达飞轮船 CMA CGM -->
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <div class="md:col-span-1">
-                            <!-- 精准还原 CMA CGM Logo -->
-                            <div class="company-logo">
-                                <svg width="180" height="50" viewBox="0 0 180 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- 浅灰色点阵地球背景 -->
-                                    <defs>
-                                        <pattern id="dotPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
-                                            <circle cx="1" cy="1" r="0.8" fill="#e5e7eb" />
-                                        </pattern>
-                                    </defs>
-                                    <ellipse cx="90" cy="25" rx="50" ry="20" fill="url(#dotPattern)" />
-                                    <!-- 双色文字 -->
-                                    <text x="40" y="30" font-family="Arial" font-weight="900" font-size="24">
-                                        <tspan fill="#E2001A">CMA</tspan>
-                                        <tspan fill="#043285" dx="5">CGM</tspan>
-                                    </text>
-                                    <!-- 动感红蓝弧线 -->
-                                    <path d="M40 10C60 4 120 4 140 10" stroke="#E2001A" stroke-width="2" stroke-linecap="round"/>
-                                    <path d="M40 40C60 46 120 46 140 40" stroke="#043285" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                            <p class="text-sm text-zinc-400 font-bold mt-4">2001 - 2015</p>
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="text-xl font-bold mb-3">Sales & Marketing Manager</h3>
-                            <ul class="text-zinc-600 text-sm space-y-3 leading-relaxed list-disc list-outside ml-4">
-                                <li>带领 8 人团队实现货量与营收增长 250%，周装载量从 1,500 TEU 扩展至 4,000 TEU。</li>
-                                <li>成功开发全球医药领航者 GSK PLC，在加勒比贸易航线上从零增长至年均 2,000 TEU。</li>
-                                <li>三次荣获 CMA CGM 优秀员工奖，持续超越各主要航线的销售指标。</li>
+                            <h3 class="text-2xl font-bold mb-3 tracking-tight">Sales & Marketing Manager</h3>
+                            <ul class="text-zinc-500 text-[15px] space-y-4 leading-relaxed list-disc list-outside ml-4">
+                                <li>成功驱动周货量增长 75%，并实现了 'INSTANT' 平台 30% 的线上渗透率。</li>
+                                <li>策划并执行大洋洲航线战略，迅速获得 15% 市场份额。</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 战略分析 -->
-            <section class="md:col-span-12 apple-card bg-dark-card p-10 md:p-14 animate-item">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- 码头现场图 (4列) -->
+            <section class="md:col-span-4 apple-card relative animate-item group overflow-hidden h-[400px] md:h-auto">
+                <img src="20241130_024625000_iOS.jpg" class="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105" alt="Terminal">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-8 left-8 right-8 text-white">
+                    <h3 class="text-2xl font-bold mb-2">Operational Depth</h3>
+                    <p class="text-sm text-white/70">Mastering complex terminal operations and end-to-end supply chain resilience.</p>
+                </div>
+            </section>
+
+            <!-- 战略分析 (8列) -->
+            <section class="md:col-span-8 apple-card bg-dark-card p-12 md:p-16 animate-item !bg-gradient-to-br from-zinc-900 to-black">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <div class="group">
-                        <h2 class="text-[11px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-6 transition-colors group-hover:text-blue-400">战略分析</h2>
-                        <p class="text-sm text-zinc-300 leading-relaxed italic mb-4">"利用数据洞察市场先机"</p>
-                        <p class="text-sm text-zinc-400 leading-relaxed">利用 Tableau 和 Power BI 进行市场运力分析，监控承运人供应趋势并评估竞争对手的部署战略。</p>
+                        <h2 class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-6 group-hover:text-cyan-400 transition-colors">Data Powered</h2>
+                        <p class="text-[13px] text-zinc-400 leading-relaxed">利用 Tableau 和 Power BI 进行精准分析，将洞察转化为优化收益的商业决策。</p>
                     </div>
-                    <div class="group">
-                        <h2 class="text-[11px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-6 transition-colors group-hover:text-blue-400">危机管理</h2>
-                        <p class="text-sm text-zinc-300 leading-relaxed italic mb-4">"在危机中稳健前行"</p>
-                        <p class="text-sm text-zinc-400 leading-relaxed">利用在港口管理部门和码头商业部门的广泛人脉，高效解决运营中断期间的关键客户问题。</p>
+                    <div class="group border-t md:border-t-0 md:border-l border-zinc-800 pt-8 md:pt-0 md:pl-10">
+                        <h2 class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-6 group-hover:text-cyan-400 transition-colors">Resilience</h2>
+                        <p class="text-[13px] text-zinc-400 leading-relaxed">凭借强大的港口及官方人脉资源，在供应链中断的关键时刻为客户高效解决问题。</p>
                     </div>
-                    <div class="group">
-                        <h2 class="text-[11px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-6 transition-colors group-hover:text-blue-400">行业洞察</h2>
-                        <p class="text-sm text-zinc-300 leading-relaxed italic mb-4">"深耕垂直行业价值"</p>
-                        <p class="text-sm text-zinc-400 leading-relaxed">深刻理解 FMCG 及冷链需求，强调供应链韧性、精确温度控制和时效性，超越单纯的成本考量。</p>
+                    <div class="group border-t md:border-t-0 md:border-l border-zinc-800 pt-8 md:pt-0 md:pl-10">
+                        <h2 class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-6 group-hover:text-cyan-400 transition-colors">Verticals</h2>
+                        <p class="text-[13px] text-zinc-400 leading-relaxed">深耕冷链、FMCG 及医药行业，我们关注温控精度与时效，而非仅仅成本。</p>
                     </div>
+                </div>
+            </section>
+
+            <!-- 数字化连接图 (4列) -->
+            <section class="md:col-span-4 apple-card relative animate-item group overflow-hidden h-[300px] md:h-auto">
+                <img src="20241130_024636000_iOS.jpg" class="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105" alt="Digital Connected">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-8 left-8 right-8 text-white">
+                    <h3 class="text-2xl font-bold mb-2">Connected</h3>
+                    <p class="text-sm text-white/70">Building digital bridges between tech-driven carriers and high-demand global clients.</p>
                 </div>
             </section>
         </div>
 
-        <!-- 联系部分 -->
-        <section id="contact" class="mt-32 text-center animate-item">
-            <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-12">准备好一起开启 <span class="text-gradient">商业新篇章了吗？</span></h2>
-            <div class="flex flex-wrap justify-center gap-10 md:gap-16">
+        <!-- 联系致电区域 -->
+        <section id="contact" class="mt-40 text-center animate-item">
+            <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-12">开启下一段 <span class="text-gradient">商业新征程。</span></h2>
+            <div class="flex flex-wrap justify-center gap-12">
                 <a href="tel:18825044791" class="group text-xl font-bold hover:text-blue-600 transition flex items-center gap-3">
-                    <span>即刻致电</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    <span class="bg-zinc-100 px-8 py-4 rounded-full group-hover:bg-blue-50 transition-all shadow-sm">致电 188 2504 4791</span>
                 </a>
-                <a href="mailto:leolu@example.com" class="group text-xl font-bold hover:text-blue-600 transition flex items-center gap-3">
-                    <span>发送邮件</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                <a href="mailto:can.leolu@gmail.com" class="group text-xl font-bold hover:text-blue-600 transition flex items-center gap-3">
+                    <span class="bg-zinc-100 px-8 py-4 rounded-full group-hover:bg-blue-50 transition-all shadow-sm">发送邮件</span>
                 </a>
             </div>
+            <p class="mt-12 text-zinc-400 font-medium tracking-widest text-sm">can.leolu@gmail.com · Guangzhou, China</p>
         </section>
 
+        <!-- 页脚 -->
         <footer class="mt-40 pt-10 border-t border-zinc-100 text-[10px] text-zinc-400 no-print flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>© 2026 Leo Lu. 秉持苹果设计哲学：大道至简。</p>
-            <p class="uppercase tracking-widest font-medium">Guangzhou · China</p>
+            <p>© 2026 Leo Lu. 秉持 Apple 极简主义设计哲学。保持热爱，无畏前行。</p>
+            <p class="uppercase tracking-widest font-semibold">Accomplished Leader · Shipping & Logistics</p>
         </footer>
     </main>
 
     <script>
-        // 平滑滚动
+        // 平滑滚动初始化
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+                    window.scrollTo({ 
+                        top: target.offsetTop - 64, 
+                        behavior: 'smooth' 
+                    });
                 }
             });
         });
 
-        // 入场动画
+        // 丝滑滚动入场观察器
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -297,12 +300,12 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
         document.querySelectorAll('.animate-item').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 1s cubic-bezier(0.23, 1, 0.32, 1)';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'all 1.2s cubic-bezier(0.23, 1, 0.32, 1)';
             observer.observe(el);
         });
     </script>
